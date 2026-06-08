@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Landing page de Iris Dubs, escritora y guionista de ficción dramática para televisión, streaming y teatro." />
+  <title>Iris Dubs | Escritora & Guionista</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    /*
+      Paleta activa: Oro Cinematográfico
+      --gold: #d6ad55; --bronze: #6f5525; --ink: #070708; --charcoal: #151313;
+    */
+
+    :root {
+      --gold: #d6ad55;
+      --gold-soft: rgba(214, 173, 85, 0.22);
+      --bronze: #6f5525;
+      --ink: #070708;
+      --charcoal: #151313;
+      --smoke: #232020;
+      --text: #f4eee4;
+      --muted: #b7ab9e;
+      --line: rgba(244, 238, 228, 0.12);
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.55);
+      --radius: 8px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: "Montserrat", Arial, sans-serif;
+      background:
+        radial-gradient(circle at 20% 0%, rgba(214, 173, 85, 0.18), transparent 30%),
+        linear-gradient(180deg, #070708 0%, #120d0f 48%, #080808 100%);
+      line-height: 1.7;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page-shell {
+      overflow: hidden;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    .film-grain {
+      pointer-events: none;
+      position: fixed;
+      inset: 0;
+      z-index: 20;
+      opacity: 0.11;
+      mix-blend-mode: screen;
+      background-image:
+        repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.04) 0 1px, transparent 1px 4px),
+        repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.035) 0 1px, transparent 1px 6px);
+    }
+
+    .topbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(7, 7, 8, 0.72);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav {
+      width: min(100% - 32px, var(--max));
+      margin: 0 auto;
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(1.35rem, 3vw, 1.95rem);
+      font-weight: 800;
+      letter-spacing: 0;
+      white-space: nowrap;
+    }
+
+    .brand span {
+      color: var(--gold);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: clamp(14px, 2.4vw, 30px);
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .nav-links a {
+      transition: color 220ms ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    .hero {
+      min-height: 96vh;
+      display: grid;
+      align-items: end;
+      position: relative;
+      padding: 130px 0 76px;
+      background:
+        linear-gradient(90deg, rgba(7, 7, 8, 0.96) 0%, rgba(7, 7, 8, 0.76) 35%, rgba(7, 7, 8, 0.18) 68%, rgba(7, 7, 8, 0.9) 100%),
+        linear-gradient(0deg, rgba(7, 7, 8, 1) 0%, rgba(7, 7, 8, 0.18) 48%, rgba(7, 7, 8, 0.1) 100%),
+        url("Material_Clasificado/Biografia/Hero Photo Iris Dubs.png") right 6% top 42% / cover no-repeat;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(214, 173, 85, 0.13) 0 1px, transparent 1px 100%),
+        linear-gradient(180deg, transparent 0%, rgba(111, 85, 37, 0.18) 100%);
+      background-size: 72px 100%, auto;
+      opacity: 0.5;
+    }
+
+    .hero-inner {
+      position: relative;
+      width: min(100% - 32px, var(--max));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 720px) 1fr;
+      gap: 48px;
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      color: var(--gold);
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .kicker::before {
+      content: "";
+      width: 46px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: "Playfair Display", Georgia, serif;
+      line-height: 1.04;
+      margin: 0;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      max-width: 780px;
+      font-size: clamp(3.25rem, 8vw, 7.7rem);
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .hero-copy {
+      max-width: 720px;
+      margin: 24px 0 34px;
+      color: #f2e8d9;
+      font-size: clamp(1rem, 2vw, 1.26rem);
+      font-weight: 400;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .meta-chip {
+      min-height: 42px;
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(214, 173, 85, 0.38);
+      padding: 9px 15px;
+      color: var(--text);
+      background: rgba(7, 7, 8, 0.46);
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    section {
+      position: relative;
+      padding: clamp(72px, 10vw, 124px) 0;
+    }
+
+    .section-inner {
+      width: min(100% - 32px, var(--max));
+      margin: 0 auto;
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: minmax(0, 0.85fr) minmax(240px, 0.7fr);
+      align-items: end;
+      gap: 32px;
+      margin-bottom: 42px;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--gold);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      font-size: clamp(2.4rem, 5vw, 4.8rem);
+    }
+
+    .section-note {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .portfolio-intro {
+      max-width: 780px;
+      margin: -16px 0 30px;
+      border-left: 2px solid var(--gold);
+      padding-left: 20px;
+      color: #e5d8c8;
+      font-size: clamp(1rem, 1.8vw, 1.12rem);
+    }
+
+    .portfolio {
+      background:
+        linear-gradient(180deg, rgba(7, 7, 8, 0.2), rgba(7, 7, 8, 0.86)),
+        linear-gradient(120deg, rgba(214, 173, 85, 0.1), transparent 38%);
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .project-card {
+      min-height: 470px;
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius);
+      background: #111;
+      box-shadow: 0 16px 42px rgba(0, 0, 0, 0.32);
+      transition: transform 280ms ease, border-color 280ms ease, box-shadow 280ms ease;
+    }
+
+    .project-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.04) 0%, rgba(0, 0, 0, 0.72) 52%, rgba(0, 0, 0, 0.96) 100%);
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(214, 173, 85, 0.78);
+      box-shadow: 0 24px 72px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--gold-soft);
+    }
+
+    .project-card img {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(0.78) contrast(1.08);
+      transform: scale(1.02);
+      transition: transform 380ms ease, filter 380ms ease;
+    }
+
+    .project-card:hover img {
+      transform: scale(1.08);
+      filter: saturate(1) contrast(1.16);
+    }
+
+    .project-content {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 26px;
+    }
+
+    .project-card p {
+      margin: 0;
+      color: #d9cec0;
+      font-size: 0.9rem;
+    }
+
+    .stats-strip {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .stat-item {
+      min-height: 132px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border: 1px solid rgba(214, 173, 85, 0.26);
+      border-radius: var(--radius);
+      padding: 20px;
+      background: rgba(10, 10, 10, 0.68);
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.28);
+    }
+
+    .stat-number {
+      color: var(--gold);
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(2rem, 4vw, 3.25rem);
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .stat-label {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .bio {
+      background:
+        linear-gradient(90deg, rgba(214, 173, 85, 0.08), transparent 38%),
+        var(--ink);
+    }
+
+    .bio-layout {
+      display: grid;
+      grid-template-columns: 0.78fr 1.22fr;
+      gap: clamp(28px, 6vw, 70px);
+      align-items: start;
+    }
+
+    .bio-title {
+      position: sticky;
+      top: 110px;
+      border-left: 2px solid var(--gold);
+      padding-left: 24px;
+    }
+
+    .bio-copy {
+      display: grid;
+      gap: 22px;
+      color: #ded5ca;
+      font-size: clamp(1rem, 1.6vw, 1.08rem);
+    }
+
+    .bio-copy p {
+      margin: 0;
+    }
+
+    .architecture {
+      background:
+        linear-gradient(180deg, rgba(7, 7, 8, 0.98), rgba(15, 14, 12, 0.98)),
+        linear-gradient(120deg, rgba(214, 173, 85, 0.12), transparent 42%);
+    }
+
+    .architecture-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .architecture-card {
+      border: 1px solid rgba(214, 173, 85, 0.22);
+      border-radius: var(--radius);
+      padding: clamp(22px, 4vw, 34px);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.015)),
+        rgba(0, 0, 0, 0.34);
+      box-shadow: 0 18px 52px rgba(0, 0, 0, 0.36);
+    }
+
+    .architecture-card h3 {
+      margin-bottom: 16px;
+      color: var(--gold);
+      font-size: clamp(1.65rem, 3vw, 2.35rem);
+    }
+
+    .architecture-card p {
+      margin: 0;
+      color: #ded5ca;
+    }
+
+    .architecture-card p + p {
+      margin-top: 16px;
+    }
+
+    .credentials {
+      background:
+        linear-gradient(180deg, rgba(21, 19, 19, 0.94), rgba(7, 7, 8, 0.98)),
+        radial-gradient(circle at 90% 30%, rgba(214, 173, 85, 0.16), transparent 38%);
+    }
+
+    .credential-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(300px, 0.92fr);
+      gap: 36px;
+      align-items: start;
+    }
+
+    .credential-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 14px;
+    }
+
+    .credential-list li,
+    .award-block {
+      border-left: 1px solid rgba(214, 173, 85, 0.45);
+      padding: 0 0 0 18px;
+      color: #dbd0c2;
+    }
+
+    .credential-list strong,
+    .award-block strong {
+      color: var(--text);
+    }
+
+    .award-block {
+      display: grid;
+      gap: 8px;
+    }
+
+    .award-block p {
+      margin: 0;
+    }
+
+    .awards-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .award-photo {
+      position: relative;
+      overflow: hidden;
+      min-height: 190px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius);
+      background: var(--smoke);
+    }
+
+    .award-photo img {
+      width: 100%;
+      height: 100%;
+      min-height: 190px;
+      object-fit: cover;
+      filter: grayscale(0.2) saturate(0.9) contrast(1.04);
+      transition: transform 300ms ease, filter 300ms ease;
+    }
+
+    .award-photo:hover img {
+      transform: scale(1.05);
+      filter: grayscale(0) saturate(1.05) contrast(1.1);
+    }
+
+    .award-photo span {
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      bottom: 12px;
+      padding: 8px 10px;
+      color: #fff6e8;
+      background: rgba(0, 0, 0, 0.72);
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .gallery {
+      background: #080808;
+    }
+
+    .film-strip {
+      position: relative;
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(280px, 360px);
+      gap: 14px;
+      overflow-x: auto;
+      overscroll-behavior-inline: contain;
+      padding: 28px 8px;
+      border-top: 1px solid rgba(214, 173, 85, 0.24);
+      border-bottom: 1px solid rgba(214, 173, 85, 0.24);
+      scrollbar-color: var(--gold) rgba(255, 255, 255, 0.08);
+      scrollbar-width: thin;
+    }
+
+    .film-strip::before,
+    .film-strip::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 12px;
+      background-image: repeating-linear-gradient(
+        90deg,
+        rgba(214, 173, 85, 0.64) 0 18px,
+        transparent 18px 36px
+      );
+      opacity: 0.56;
+    }
+
+    .film-strip::before {
+      top: 0;
+    }
+
+    .film-strip::after {
+      bottom: 0;
+    }
+
+    .film-frame {
+      position: relative;
+      min-height: 430px;
+      overflow: hidden;
+      border: 1px solid rgba(214, 173, 85, 0.3);
+      border-radius: var(--radius);
+      background: #050505;
+      box-shadow: 0 20px 54px rgba(0, 0, 0, 0.42);
+    }
+
+    .film-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      aspect-ratio: 4 / 5;
+      filter: brightness(0.82) saturate(0.78) contrast(1.08);
+      transition: transform 320ms ease, filter 320ms ease;
+    }
+
+    .film-frame:hover img {
+      transform: scale(1.06);
+      filter: brightness(1) saturate(1.05);
+    }
+
+    .film-frame::after {
+      content: "Abrir";
+      position: absolute;
+      right: 14px;
+      bottom: 14px;
+      z-index: 1;
+      opacity: 0;
+      transform: translateY(8px);
+      padding: 8px 10px;
+      color: var(--text);
+      background: rgba(0, 0, 0, 0.72);
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      transition: opacity 240ms ease, transform 240ms ease;
+    }
+
+    .film-frame:hover::after {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .film-frame.is-placeholder {
+      display: grid;
+      place-items: center;
+      color: rgba(244, 238, 228, 0.58);
+      background:
+        linear-gradient(135deg, rgba(214, 173, 85, 0.12), rgba(255, 255, 255, 0.02)),
+        repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.035) 0 2px, transparent 2px 12px),
+        #090909;
+    }
+
+    .film-frame.is-placeholder::after {
+      content: "Seleccionar imagen";
+      opacity: 1;
+      right: 50%;
+      bottom: 50%;
+      transform: translate(50%, 50%);
+      color: var(--gold);
+      white-space: nowrap;
+    }
+
+    .contact {
+      padding-bottom: 50px;
+      background:
+        linear-gradient(180deg, rgba(7, 7, 8, 0.94), rgba(7, 7, 8, 1)),
+        linear-gradient(90deg, rgba(111, 85, 37, 0.16), rgba(214, 173, 85, 0.08));
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.88fr) minmax(320px, 1.12fr);
+      gap: 42px;
+      align-items: start;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 30px;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .contact-list a:hover {
+      color: var(--gold);
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 14px;
+      border: 1px solid rgba(214, 173, 85, 0.22);
+      border-radius: var(--radius);
+      padding: clamp(20px, 4vw, 34px);
+      background: rgba(18, 15, 15, 0.72);
+      box-shadow: var(--shadow);
+    }
+
+    label {
+      display: grid;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 4px;
+      padding: 14px 15px;
+      color: var(--text);
+      background: rgba(0, 0, 0, 0.36);
+      font: inherit;
+      outline: none;
+      transition: border-color 200ms ease, box-shadow 200ms ease;
+    }
+
+    textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: rgba(214, 173, 85, 0.75);
+      box-shadow: 0 0 0 3px rgba(214, 173, 85, 0.12);
+    }
+
+    button {
+      min-height: 52px;
+      border: 1px solid var(--gold);
+      border-radius: 4px;
+      padding: 14px 22px;
+      color: #170e06;
+      background: linear-gradient(135deg, #f0d891, var(--gold));
+      font: inherit;
+      font-weight: 800;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: transform 200ms ease, filter 200ms ease;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.08);
+    }
+
+    .footer-note {
+      width: min(100% - 32px, var(--max));
+      margin: 42px auto 0;
+      border-top: 1px solid var(--line);
+      padding-top: 20px;
+      color: rgba(244, 238, 228, 0.55);
+      font-size: 0.78rem;
+      text-align: center;
+    }
+
+    @media (max-width: 980px) {
+      .nav {
+        min-height: 66px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        min-height: 92vh;
+        align-items: end;
+        background-position: right 18% top 38%;
+      }
+
+      .hero-inner,
+      .section-heading,
+      .bio-layout,
+      .architecture-grid,
+      .credential-layout,
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .portfolio-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .bio-title {
+        position: static;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .hero {
+        min-height: 88vh;
+        padding: 112px 0 48px;
+        background:
+          linear-gradient(90deg, rgba(7, 7, 8, 0.92) 0%, rgba(7, 7, 8, 0.72) 55%, rgba(7, 7, 8, 0.42) 100%),
+          linear-gradient(0deg, rgba(7, 7, 8, 1) 0%, rgba(7, 7, 8, 0.2) 55%),
+          url("Material_Clasificado/Biografia/Hero Photo Iris Dubs.png") right 34% top 18% / cover no-repeat;
+      }
+
+      h1 {
+        font-size: clamp(3rem, 16vw, 4.9rem);
+      }
+
+      .hero-copy {
+        font-size: 1rem;
+      }
+
+      .portfolio-grid,
+      .stats-strip,
+      .awards-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .project-card {
+        min-height: 430px;
+      }
+
+      .film-strip {
+        grid-auto-columns: minmax(230px, 82vw);
+      }
+
+      .film-frame {
+        min-height: 340px;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .project-content {
+        padding: 20px;
+      }
+
+      .meta-chip {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <div class="film-grain" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <nav class="nav" aria-label="Navegación principal">
+        <a class="brand" href="#inicio">Iris <span>Dubs</span></a>
+        <div class="nav-links">
+          <a href="#portafolio">Portafolio</a>
+          <a href="#biografia">Biografía</a>
+          <a href="#arquitectura">Arquitectura</a>
+          <a href="#credenciales">Credenciales</a>
+          <a href="#galeria">Galería</a>
+          <a href="#contacto">Contacto</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="inicio">
+        <div class="hero-inner">
+          <div>
+            <p class="kicker">Escritora y guionista</p>
+            <h1>Iris Dubs</h1>
+            <p class="hero-copy">De la intimidad del escenario al impacto del streaming global. Historias complejas, estructuradas para conectar con audiencias masivas.</p>
+            <div class="hero-meta" aria-label="Credenciales destacadas">
+              <span class="meta-chip">Drama</span>
+              <span class="meta-chip">Streaming</span>
+              <span class="meta-chip">Narcoseries</span>
+              <span class="meta-chip">Teatro</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="portfolio" id="portafolio">
+        <div class="section-inner">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Éxitos / Portafolio</p>
+              <h2>Narrativas de alto voltaje</h2>
+            </div>
+              <p class="section-note">Series, franquicias y melodramas construidos con pulso comercial, tensión emocional y personajes al borde de su propia leyenda.</p>
+          </div>
+
+          <p class="portfolio-intro">Tras más de tres décadas dedicadas a la escritura para televisión y una participación ininterrumpida en más de 40 proyectos audiovisuales, destacan:</p>
+
+          <div class="portfolio-grid">
+            <article class="project-card">
+              <img src="Material_Clasificado/Narcoseries/elselpr.jpg" alt="La Dinastía Casillas / El Señor de los Cielos 10" />
+              <div class="project-content">
+                <p>En un imperio criminal donde la lealtad se paga con sangre, una nueva generación asume el mando de la organización de narcotráfico más poderosa del continente, enfrentando una guerra donde sus mayores enemigos provienen de su propia sangre.</p>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <img src="Material_Clasificado/Narcoseries/Dinastia (1).jpg" alt="Dinastía Casilla" />
+              <div class="project-content">
+                <p>Desde la continuidad dramática de una franquicia de alto impacto, la historia expande el universo Casillas hacia una nueva generación marcada por herencias criminales, pactos familiares y guerras internas por el control del poder.</p>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <img src="Material_Clasificado/Narcoseries/Malverde-TVFilm.jpg" alt="Malverde: El Santo Patrón" />
+              <div class="project-content">
+                <p>En un México prerrevolucionario dominado por la opresión, la fe de un pueblo oprimido recae sobre un bandido legendario que desafía la ley, convirtiendo su propia leyenda en el arma más peligrosa contra las élites del poder.</p>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <img src="Material_Clasificado/Narcoseries/Chema.png" alt="El Chema" />
+              <div class="project-content">
+                <p>El ascenso meteórico de un capo fronterizo implacable, cuya ambición por dominar el narcotráfico a nivel global lo lleva a cruzar fronteras físicas y morales en un camino sin retorno donde sobrevivir es el mayor desafío.</p>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <img src="Material_Clasificado/Telenovelas/dulce.jpg" alt="Dulce Amargo / Toda una Dama" />
+              <div class="project-content">
+                <p>En un entorno de secretos familiares e infidelidades corporativas, las traiciones sentimentales y los choques de poder obligan a sus protagonistas a deconstruir sus vidas, revelando que el precio de la redención suele ser el más alto.</p>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <img src="Material_Clasificado/Telenovelas/Toda-una-dama.jpeg" alt="Toda una Dama" />
+              <div class="project-content">
+                <p>Tras años en prisión por un delito menor, Valeria Aguirre recupera su libertad con un objetivo: vengarse del fiscal que marcó su destino. Pero el amor, el poder y una verdad familiar inesperada transforman la revancha en una batalla emocional.</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="stats-strip" aria-label="Estadísticas profesionales destacadas">
+            <div class="stat-item">
+              <span class="stat-number">1000+</span>
+              <span class="stat-label">Horas de televisión</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">40+</span>
+              <span class="stat-label">Producciones audiovisuales</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">30+</span>
+              <span class="stat-label">Montajes teatrales</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">100+</span>
+              <span class="stat-label">Entrevistas y análisis</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="bio" id="biografia">
+        <div class="section-inner bio-layout">
+          <div class="bio-title">
+            <p class="eyebrow">Biografía</p>
+            <h2>Detrás de la Historia</h2>
+          </div>
+          <div class="bio-copy">
+            <p>Con más de tres décadas de trayectoria en la industria audiovisual y teatral, Iris Dubs es una de las firmas clave en el desarrollo de la ficción dramática contemporánea en español. Como parte del equipo de guionistas de la multipremiada franquicia <em>El Señor de los Cielos</em>, ganadora del Emmy Internacional, y de universos derivados como <em>El Chema</em>, <em>Malverde: El Santo Patrón</em> y <em>La Dinastía Casillas</em>, ha consolidado una voz especializada en narrativas de alta tensión, acción y continuidad dramática.</p>
+            <p>Desde la dirección literaria hasta la creación de formatos originales, su trabajo equilibra rigor estructural, lectura de mercado y un entendimiento profundo del comportamiento humano. Su mirada aporta relaciones coherentes, personajes tridimensionales y subtexto emocional: piezas esenciales para historias capaces de resonar en audiencias locales e internacionales.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="architecture" id="arquitectura">
+        <div class="section-inner">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Método Creativo</p>
+              <h2>Arquitectura de la Historia</h2>
+            </div>
+            <p class="section-note">Una práctica narrativa construida entre teatro, televisión, investigación, presión de producción y lectura emocional del personaje.</p>
+          </div>
+
+          <div class="architecture-grid">
+            <article class="architecture-card">
+              <h3>La Escuela del Escenario</h3>
+              <p>El entendimiento del diálogo orgánico, el ritmo, el espacio dramático y las exigencias reales de producción proviene de sus raíces teatrales. Formada en el Taller Nacional de Teatro de Rajatabla, bajo la dirección de Carlos Giménez, Dubs desarrolló una visión integral de la puesta en escena como actriz, directora, productora y docente.</p>
+              <p>Su experiencia con agrupaciones como Grupo Theja, Arte Atid, Grupo Actoral 80 y Skena, junto a más de 30 montajes teatrales, le permite concebir historias desde la acción viva: personajes que hablan, se contradicen, ocupan el espacio y sostienen la atención de una audiencia.</p>
+            </article>
+
+            <article class="architecture-card">
+              <h3>El Método detrás de la Historia</h3>
+              <p>Su formación en Comunicación Social, dramaturgia, narrativa literaria, psicología positiva e inteligencia espiritual sostiene una escritura atenta a la investigación, la información sensible y el impacto social de dramatizar crimen, violencia y poder.</p>
+              <p>Como autora y formadora de guionistas, ha trabajado la emoción humana dentro de las demandas del mercado audiovisual: deadlines, cambios de producción, continuidad narrativa y decisiones dramáticas clave en entornos de alta exigencia.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="credentials" id="credenciales">
+        <div class="section-inner">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Prensa y Reconocimientos</p>
+              <h2>Credenciales de la Industria</h2>
+            </div>
+              <p class="section-note">Premios, jurados, plataformas y espacios críticos que sostienen una carrera construida entre oficio, visión y continuidad.</p>
+          </div>
+
+          <div class="credential-layout">
+            <div>
+              <ul class="credential-list">
+                <li><strong>Jurado de la Industria de la Televisión:</strong> Invitada recurrente como jurado internacional en los <strong>Premios PRODU</strong> (ediciones 2022-2026) y en el Concurso de Guiones de Cortometrajes impulsado por <strong>CinemaVenezuela</strong> (2023-2026).</li>
+                <li><strong>Voz de Autoridad en Plataformas y Streaming:</strong> Conductora y especialista invitada semanal en el programa <em>Al Final del Día</em> (Actualidad Radio, Miami), dedicada al análisis crítico y tendencias de las producciones más importantes de la industria.</li>
+              </ul>
+
+              <div class="award-block" style="margin-top: 20px;">
+                <p><strong>Reconocimientos a la Escritura Audiovisual:</strong></p>
+                <p><strong>Premio Tacarigua de Oro Internacional (2021-2022):</strong> Distinción otorgada como <em>Escritora con Mayor Proyección Internacional</em>.</p>
+                <p><strong>Premio Inter (2013):</strong> Galardonada como <em>Escritora del Año</em> por la serie <em>Dulce Amargo</em>.</p>
+                <p><strong>Nominaciones Especiales de Honor:</strong> Nominada al premio W.H. Phelps y al Premio José Ignacio Cabrujas como escritora de televisión por su adaptación y liderazgo de la serie <em>Toda una Dama</em>.</p>
+              </div>
+
+              <div class="award-block" style="margin-top: 20px;">
+                <p><strong>Reconocimientos y Formación Teatral:</strong></p>
+                <p><strong>Premio de Teatro Infantil Nacional (2005):</strong> Ganadora de la XIII Edición como productora teatral.</p>
+                <p><strong>Premio Municipal de Teatro (1996):</strong> Reconocimiento como actriz de reparto por <em>El Matrimonio de Bette y Boo</em>.</p>
+                <p><strong>Orden Mérito al Trabajo (Categoría Plata):</strong> Otorgada por su contribución al desarrollo cultural y docente en las artes escénicas.</p>
+              </div>
+            </div>
+
+            <div class="awards-grid" aria-label="Imagenes de premios y reconocimientos">
+              <figure class="award-photo">
+                <img src="Material_Clasificado/Premios/Tacarigua.jpg" alt="Premio Tacarigua" />
+                <span>Tacarigua de Oro</span>
+              </figure>
+              <figure class="award-photo">
+                <img src="Material_Clasificado/Premios/Premio-2025-768x770.jpg" alt="Premio PRODU 2025" />
+                <span>Premios PRODU</span>
+              </figure>
+              <figure class="award-photo">
+                <img src="Material_Clasificado/Premios/Premio-Jose-Ignacio-Cabrujas.jpg" alt="Premio José Ignacio Cabrujas" />
+                <span>José Ignacio Cabrujas</span>
+              </figure>
+              <figure class="award-photo">
+                <img src="Material_Clasificado/Premios/Produ-Jurado-300x188.jpg" alt="Jurado Premios PRODU" />
+                <span>Jurado de Industria</span>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="gallery" id="galeria">
+        <div class="section-inner">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Galería Inmersiva</p>
+              <h2>Archivo visual</h2>
+            </div>
+            <p class="section-note">Una tira cinematográfica horizontal, pensada como archivo de fotogramas para recorrer la trayectoria visual y de prensa.</p>
+          </div>
+
+          <div class="film-strip" aria-label="Archivo visual en formato film strip">
+            <a class="film-frame" href="Material_Clasificado/Prensa_Media/FullSizeRender-1_edited.jpg">
+              <img src="Material_Clasificado/Prensa_Media/FullSizeRender-1_edited.jpg" alt="Iris Dubs en prensa y medios" />
+            </a>
+            <a class="film-frame" href="Material_Clasificado/Prensa_Media/images.jpg">
+              <img src="Material_Clasificado/Prensa_Media/images.jpg" alt="Imagen de prensa de Iris Dubs" />
+            </a>
+            <a class="film-frame" href="Material_Clasificado/Prensa_Media/Monologando.jpg">
+              <img src="Material_Clasificado/Prensa_Media/Monologando.jpg" alt="Monologando" />
+            </a>
+            <a class="film-frame" href="Material_Clasificado/Prensa_Media/SABRINA_SEARA_senor_de_los_C.jpg">
+              <img src="Material_Clasificado/Prensa_Media/SABRINA_SEARA_senor_de_los_C.jpg" alt="Señor de los Cielos media" />
+            </a>
+            <a class="film-frame" href="Material_Clasificado/Prensa_Media/Telemundo-Edge-scaled.jpg">
+              <img src="Material_Clasificado/Prensa_Media/Telemundo-Edge-scaled.jpg" alt="Telemundo Edge" />
+            </a>
+            <a class="film-frame" href="Material_Clasificado/Prensa_Media/Voz-500x500.jpg">
+              <img src="Material_Clasificado/Prensa_Media/Voz-500x500.jpg" alt="Voz y medios" />
+            </a>
+            <div class="film-frame is-placeholder" aria-label="Imagen pendiente por seleccionar"></div>
+            <div class="film-frame is-placeholder" aria-label="Imagen pendiente por seleccionar"></div>
+            <div class="film-frame is-placeholder" aria-label="Imagen pendiente por seleccionar"></div>
+            <div class="film-frame is-placeholder" aria-label="Imagen pendiente por seleccionar"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="contact" id="contacto">
+      <div class="section-inner contact-layout">
+        <div>
+          <p class="eyebrow">Contacto</p>
+          <h2>Enviar una propuesta</h2>
+          <div class="contact-list">
+            <a href="https://www.irisdubs.com">www.irisdubs.com</a>
+            <span>SGAE #139006</span>
+            <a href="https://linkedin.com/in/iris-dubs">LinkedIn: linkedin.com/in/iris-dubs</a>
+            <a href="https://imdb.com/name/nm1424737">IMDb: imdb.com/name/nm1424737</a>
+            <a href="https://x.com/irisdubs">X: @irisdubs</a>
+            <a href="https://instagram.com/irisdubs">IG: @irisdubs</a>
+          </div>
+        </div>
+
+        <form class="contact-form" action="#" method="post">
+          <label>
+            Nombre
+            <input type="text" name="nombre" autocomplete="name" required />
+          </label>
+          <label>
+            Email
+            <input type="email" name="email" autocomplete="email" required />
+          </label>
+          <label>
+            Mensaje
+            <textarea name="mensaje" required></textarea>
+          </label>
+          <button type="submit">Enviar Propuesta</button>
+        </form>
+      </div>
+      <p class="footer-note">© 2026 Iris Dubs. Escritura, desarrollo y arquitectura dramática para televisión, streaming y teatro.</p>
+    </footer>
+  </div>
+</body>
+</html>
