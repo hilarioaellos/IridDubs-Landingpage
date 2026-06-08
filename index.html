@@ -628,6 +628,55 @@
       white-space: nowrap;
     }
 
+    .video-archive {
+      background:
+        linear-gradient(180deg, rgba(8, 8, 8, 1), rgba(14, 13, 11, 0.98)),
+        linear-gradient(120deg, rgba(214, 173, 85, 0.08), transparent 44%);
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .video-card {
+      overflow: hidden;
+      border: 1px solid rgba(214, 173, 85, 0.24);
+      border-radius: var(--radius);
+      background: rgba(0, 0, 0, 0.46);
+      box-shadow: 0 18px 52px rgba(0, 0, 0, 0.38);
+    }
+
+    .video-card iframe,
+    .video-placeholder {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 0;
+      display: block;
+    }
+
+    .video-placeholder {
+      display: grid;
+      place-items: center;
+      color: var(--gold);
+      background:
+        linear-gradient(135deg, rgba(214, 173, 85, 0.12), rgba(255, 255, 255, 0.02)),
+        repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.035) 0 2px, transparent 2px 12px),
+        #090909;
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .video-caption {
+      padding: 16px 18px 18px;
+      color: #ded5ca;
+      font-size: 0.86rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
     .contact {
       padding-bottom: 50px;
       background:
@@ -746,6 +795,7 @@
       .bio-layout,
       .architecture-grid,
       .credential-layout,
+      .video-grid,
       .contact-layout {
         grid-template-columns: 1fr;
       }
@@ -821,6 +871,7 @@
           <a href="#arquitectura">Arquitectura</a>
           <a href="#credenciales">Credenciales</a>
           <a href="#galeria">Galería</a>
+          <a href="#videos">Videos</a>
           <a href="#contacto">Contacto</a>
         </div>
       </nav>
@@ -951,7 +1002,7 @@
             </article>
 
             <article class="architecture-card">
-              <h3>El Método detrás de la Historia</h3>
+              <h3>El Método</h3>
               <p>Su formación en Comunicación Social, dramaturgia, narrativa literaria, psicología positiva e inteligencia espiritual sostiene una escritura atenta a la investigación, la información sensible y el impacto social de dramatizar crimen, violencia y poder.</p>
               <p>Como autora y formadora de guionistas, ha trabajado la emoción humana dentro de las demandas del mercado audiovisual: deadlines, cambios de producción, continuidad narrativa y decisiones dramáticas clave en entornos de alta exigencia.</p>
             </article>
@@ -1046,6 +1097,40 @@
             <div class="film-frame is-placeholder" aria-label="Imagen pendiente por seleccionar"></div>
             <div class="film-frame is-placeholder" aria-label="Imagen pendiente por seleccionar"></div>
             <div class="film-frame is-placeholder" aria-label="Imagen pendiente por seleccionar"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="video-archive" id="videos">
+        <div class="section-inner">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Archivo Audiovisual</p>
+              <h2>Voz, entrevistas y pantalla</h2>
+            </div>
+            <p class="section-note">Una selección de apariciones, conversaciones y piezas audiovisuales para ampliar la presencia pública de Iris Dubs.</p>
+          </div>
+
+          <div class="video-grid">
+            <article class="video-card">
+              <iframe src="https://www.youtube.com/embed/F97o-l61lcY" title="Archivo audiovisual Iris Dubs 1" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              <div class="video-caption">Archivo audiovisual destacado</div>
+            </article>
+
+            <article class="video-card">
+              <iframe src="https://www.youtube.com/embed/ZbdNtJnHZPk" title="Archivo audiovisual Iris Dubs 2" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              <div class="video-caption">Entrevista y presencia en medios</div>
+            </article>
+
+            <article class="video-card">
+              <iframe src="https://www.youtube.com/embed/S4vPsUwa7cY" title="Archivo audiovisual Iris Dubs 3" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              <div class="video-caption">Conversación sobre industria y narrativa</div>
+            </article>
+
+            <article class="video-card">
+              <div class="video-placeholder">Video por seleccionar</div>
+              <div class="video-caption">Espacio reservado</div>
+            </article>
           </div>
         </div>
       </section>
