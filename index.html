@@ -126,6 +126,37 @@
       color: var(--gold);
     }
 
+    .language-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      border: 1px solid rgba(214, 173, 85, 0.38);
+      padding: 4px;
+      background: rgba(7, 7, 8, 0.56);
+    }
+
+    .language-toggle button {
+      min-width: 36px;
+      min-height: 30px;
+      border: 0;
+      padding: 6px 8px;
+      color: var(--muted);
+      background: transparent;
+      font-size: 0.72rem;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .language-toggle button.is-active {
+      color: var(--ink);
+      background: var(--gold);
+    }
+
+    .language-toggle button:hover {
+      transform: none;
+      filter: none;
+    }
+
     .hero {
       min-height: 96vh;
       display: grid;
@@ -874,6 +905,10 @@
           <a href="#videos">Videos</a>
           <a href="#contacto">Contacto</a>
         </div>
+        <div class="language-toggle" aria-label="Selector de idioma">
+          <button class="is-active" type="button" data-lang-switch="es">ES</button>
+          <button type="button" data-lang-switch="en">EN</button>
+        </div>
       </nav>
     </header>
 
@@ -1044,19 +1079,19 @@
 
             <div class="awards-grid" aria-label="Imagenes de premios y reconocimientos">
               <figure class="award-photo">
-                <img src="Material_Clasificado/Premios/Tacarigua.jpeg?v=20260609-2" alt="Premio Tacarigua" />
+                <img src="Material_Clasificado/Premios/premio-tacarigua.jpeg?v=20260609-3" alt="Premio Tacarigua" />
               </figure>
               <figure class="award-photo">
-                <img src="Material_Clasificado/Premios/Premio-2025-768x770.jpg" alt="Premio PRODU 2025" />
+                <img src="Material_Clasificado/Premios/premio-produ-2025.jpg?v=20260609-3" alt="Premio PRODU 2025" />
               </figure>
               <figure class="award-photo">
-                <img src="Material_Clasificado/Premios/Premio-Jose-Ignacio-Cabrujas.jpg" alt="Premio José Ignacio Cabrujas" />
+                <img src="Material_Clasificado/Premios/jose-ignacio-cabrujas-premio.jpg?v=20260609-3" alt="Premio José Ignacio Cabrujas" />
               </figure>
               <figure class="award-photo">
-                <img src="Material_Clasificado/Premios/Nomine Emmi Malverde.jpeg?v=20260609-2" alt="Nominación Emmy por Malverde" />
+                <img src="Material_Clasificado/Premios/nominacion-emmy-malverde.jpeg?v=20260609-3" alt="Nominación Emmy por Malverde" />
               </figure>
               <figure class="award-photo">
-                <img src="Material_Clasificado/Premios/Produ-Jurado.jpeg?v=20260609-2" alt="Jurado Premios PRODU" />
+                <img src="Material_Clasificado/Premios/premios-produ-jurado.jpeg?v=20260609-3" alt="Jurado Premios PRODU" />
               </figure>
             </div>
           </div>
@@ -1177,5 +1212,133 @@
       <p class="footer-note">© 2026 Iris Dubs. Escritura, desarrollo y arquitectura dramática para televisión, streaming y teatro.</p>
     </footer>
   </div>
+  <script>
+    const translations = [
+      { selector: 'a[href="#portafolio"]', en: 'Portfolio' },
+      { selector: 'a[href="#biografia"]', en: 'Biography' },
+      { selector: 'a[href="#arquitectura"]', en: 'Architecture' },
+      { selector: 'a[href="#credenciales"]', en: 'Credentials' },
+      { selector: 'a[href="#galeria"]', en: 'Gallery' },
+      { selector: 'a[href="#videos"]', en: 'Videos' },
+      { selector: 'a[href="#contacto"]', en: 'Contact' },
+      { selector: '.kicker', en: 'Writer and screenwriter' },
+      { selector: '.hero-copy', en: 'From the intimacy of the stage to the impact of global streaming. Complex stories, structured to connect with mass audiences.' },
+      { selector: '.meta-chip:nth-child(3)', en: 'Narco Series' },
+      { selector: '.meta-chip:nth-child(4)', en: 'Theater' },
+      { selector: '#portafolio .eyebrow', en: 'Hits / Portfolio' },
+      { selector: '#portafolio h2', en: 'High-voltage narratives' },
+      { selector: '#portafolio .section-note', en: 'Series, franchises, and melodramas built with commercial pulse, emotional tension, and characters standing at the edge of their own legend.' },
+      { selector: '.portfolio-intro', en: 'After more than three decades writing for television and uninterrupted participation in more than 40 audiovisual projects, highlights include:' },
+      { selector: '.project-card:nth-child(1) .project-content p', en: 'In a criminal empire where loyalty is paid for in blood, a new generation takes command of the most powerful drug trafficking organization on the continent, facing a war in which their greatest enemies come from their own bloodline.' },
+      { selector: '.project-card:nth-child(2) .project-content p', en: 'Through the dramatic continuity of a high-impact franchise, the story expands the Casillas universe toward a new generation shaped by criminal inheritance, family pacts, and internal wars for control of power.' },
+      { selector: '.project-card:nth-child(3) .project-content p', en: 'In pre-revolutionary Mexico, dominated by oppression, the faith of a subjugated people falls upon a legendary bandit who defies the law, turning his own legend into the most dangerous weapon against the elites in power.' },
+      { selector: '.project-card:nth-child(4) .project-content p', en: 'The meteoric rise of a ruthless border capo whose ambition to dominate drug trafficking on a global scale drives him across physical and moral borders on a path of no return, where survival becomes the greatest challenge.' },
+      { selector: '.project-card:nth-child(5) .project-content p', en: 'In a world of family secrets and corporate infidelities, romantic betrayals and power clashes force the protagonists to deconstruct their lives, revealing that the price of redemption is often the highest one.' },
+      { selector: '.project-card:nth-child(6) .project-content p', en: 'After years in prison for a minor crime, Valeria Aguirre regains her freedom with one goal: revenge against the prosecutor who marked her destiny. But love, power, and an unexpected family truth transform revenge into an emotional battle.' },
+      { selector: '.stat-item:nth-child(1) .stat-label', en: 'Hours of television' },
+      { selector: '.stat-item:nth-child(2) .stat-label', en: 'Audiovisual productions' },
+      { selector: '.stat-item:nth-child(3) .stat-label', en: 'Theater productions' },
+      { selector: '.stat-item:nth-child(4) .stat-label', en: 'Interviews and analysis' },
+      { selector: '#biografia .eyebrow', en: 'Biography' },
+      { selector: '#biografia h2', en: 'Behind the Story' },
+      { selector: '.bio-copy p:nth-child(1)', en: 'With more than three decades of experience in the audiovisual and theater industries, Iris Dubs is one of the key voices in the development of contemporary dramatic fiction in Spanish. As part of the writing team behind the award-winning franchise <em>El Señor de los Cielos</em>, winner of the International Emmy, and related universes such as <em>El Chema</em>, <em>Malverde: El Santo Patrón</em>, and <em>La Dinastía Casillas</em>, she has consolidated a voice specialized in high-tension narratives, action, and dramatic continuity.' },
+      { selector: '.bio-copy p:nth-child(2)', en: 'From literary direction to the creation of original formats, her work balances structural rigor, market awareness, and a deep understanding of human behavior. Her perspective brings coherent relationships, three-dimensional characters, and emotional subtext: essential elements for stories capable of resonating with local and international audiences.' },
+      { selector: '#arquitectura .eyebrow', en: 'Creative Method' },
+      { selector: '#arquitectura h2', en: 'Story Architecture' },
+      { selector: '#arquitectura .section-note', en: 'A narrative practice built between theater, television, research, production pressure, and emotional character reading.' },
+      { selector: '.architecture-card:nth-child(1) h3', en: 'The School of the Stage' },
+      { selector: '.architecture-card:nth-child(1) p:nth-of-type(1)', en: 'Her understanding of organic dialogue, rhythm, dramatic space, and the real demands of production comes from her theatrical roots. Trained at the Rajatabla National Theater Workshop under the direction of Carlos Giménez, Dubs developed an integrated view of staging as an actress, director, producer, and teacher.' },
+      { selector: '.architecture-card:nth-child(1) p:nth-of-type(2)', en: 'Her experience with companies such as Grupo Theja, Arte Atid, Grupo Actoral 80, and Skena, along with more than 30 theater productions, allows her to conceive stories from live action: characters who speak, contradict themselves, inhabit space, and hold an audience’s attention.' },
+      { selector: '.architecture-card:nth-child(2) h3', en: 'The Method Behind the Story' },
+      { selector: '.architecture-card:nth-child(2) p:nth-of-type(1)', en: 'Her training in Social Communication, playwriting, literary narrative, positive psychology, and spiritual intelligence supports writing that is attentive to research, sensitive information, and the social impact of dramatizing crime, violence, and power.' },
+      { selector: '.architecture-card:nth-child(2) p:nth-of-type(2)', en: 'As an author and screenwriting mentor, she has worked with human emotion within the demands of the audiovisual market: deadlines, production changes, narrative continuity, and key dramatic decisions in high-pressure environments.' },
+      { selector: '#credenciales .eyebrow', en: 'Press and Recognition' },
+      { selector: '#credenciales h2', en: 'Industry Credentials' },
+      { selector: '#credenciales .section-note', en: 'Awards, juries, platforms, and critical spaces that support a career built on craft, vision, and continuity.' },
+      { selector: '.credential-list li:nth-child(1)', en: '<strong>Television Industry Jury:</strong> Recurrent guest as an international juror for the <strong>PRODU Awards</strong> (2022-2026 editions) and for the Short Film Screenplay Competition promoted by <strong>CinemaVenezuela</strong> (2023-2026).' },
+      { selector: '.credential-list li:nth-child(2)', en: '<strong>Authoritative Voice on Platforms and Streaming:</strong> Weekly host and specialist guest on <em>Al Final del Día</em> (Actualidad Radio, Miami), dedicated to critical analysis and trends in the industry’s most important productions.' },
+      { selector: '.award-block:nth-of-type(1) p:nth-child(1)', en: '<strong>Recognition for Audiovisual Writing:</strong>' },
+      { selector: '.award-block:nth-of-type(1) p:nth-child(2)', en: '<strong>Tacarigua de Oro International Award (2021-2022):</strong> Recognition as <em>Writer with the Greatest International Projection</em>.' },
+      { selector: '.award-block:nth-of-type(1) p:nth-child(3)', en: '<strong>Inter Award (2013):</strong> Honored as <em>Writer of the Year</em> for the series <em>Dulce Amargo</em>.' },
+      { selector: '.award-block:nth-of-type(1) p:nth-child(4)', en: '<strong>Special Honor Nominations:</strong> Nominated for the W.H. Phelps Award and the José Ignacio Cabrujas Award as a television writer for her adaptation and leadership of the series <em>Toda una Dama</em>.' },
+      { selector: '.award-block:nth-of-type(2) p:nth-child(1)', en: '<strong>Recognition and Theater Training:</strong>' },
+      { selector: '.award-block:nth-of-type(2) p:nth-child(2)', en: '<strong>National Children’s Theater Award (2005):</strong> Winner of the 13th edition as a theater producer.' },
+      { selector: '.award-block:nth-of-type(2) p:nth-child(3)', en: '<strong>Municipal Theater Award (1996):</strong> Recognition as supporting actress for <em>El Matrimonio de Bette y Boo</em>.' },
+      { selector: '.award-block:nth-of-type(2) p:nth-child(4)', en: '<strong>Order of Merit for Labor (Silver Category):</strong> Awarded for her contribution to cultural and educational development in the performing arts.' },
+      { selector: '#galeria .eyebrow', en: 'Immersive Gallery' },
+      { selector: '#galeria h2', en: 'Visual Archive' },
+      { selector: '#galeria .section-note', en: 'A horizontal cinematic strip designed as a frame archive to explore her visual and media trajectory.' },
+      { selector: '#videos .eyebrow', en: 'Audiovisual Archive' },
+      { selector: '#videos h2', en: 'Voice, interviews, and screen' },
+      { selector: '#videos .section-note', en: 'A selection of appearances, conversations, and audiovisual pieces that expand Iris Dubs’ public presence.' },
+      { selector: '.video-card:nth-child(1) .video-caption', en: 'Featured audiovisual archive' },
+      { selector: '.video-card:nth-child(2) .video-caption', en: 'Interview and media presence' },
+      { selector: '.video-card:nth-child(3) .video-caption', en: 'Conversation on industry and narrative' },
+      { selector: '.video-placeholder', en: 'Video to be selected' },
+      { selector: '.video-card:nth-child(4) .video-caption', en: 'Reserved space' },
+      { selector: '#contacto .eyebrow', en: 'Contact' },
+      { selector: '#contacto h2', en: 'Send a proposal' },
+      { selector: '.contact-form button[type="submit"]', en: 'Send Proposal' },
+      { selector: '.footer-note', en: '© 2026 Iris Dubs. Writing, development, and dramatic architecture for television, streaming, and theater.' }
+    ];
+
+    const labelTranslations = [
+      { selector: '.contact-form label:nth-of-type(1)', en: 'Name' },
+      { selector: '.contact-form label:nth-of-type(2)', en: 'Email' },
+      { selector: '.contact-form label:nth-of-type(3)', en: 'Message' }
+    ];
+
+    const originalText = new Map();
+    const originalLabels = new Map();
+    const originalTitle = document.title;
+    const originalDescription = document.querySelector('meta[name="description"]')?.getAttribute('content') || '';
+
+    translations.forEach((item) => {
+      const element = document.querySelector(item.selector);
+      if (element) {
+        originalText.set(item.selector, element.innerHTML);
+      }
+    });
+
+    labelTranslations.forEach((item) => {
+      const element = document.querySelector(item.selector);
+      if (element && element.firstChild) {
+        originalLabels.set(item.selector, element.firstChild.nodeValue);
+      }
+    });
+
+    function setLanguage(language) {
+      document.documentElement.lang = language;
+      document.querySelectorAll('[data-lang-switch]').forEach((button) => {
+        button.classList.toggle('is-active', button.dataset.langSwitch === language);
+      });
+
+      translations.forEach((item) => {
+        const element = document.querySelector(item.selector);
+        if (element) {
+          element.innerHTML = language === 'en' ? item.en : originalText.get(item.selector);
+        }
+      });
+
+      labelTranslations.forEach((item) => {
+        const element = document.querySelector(item.selector);
+        if (element && element.firstChild) {
+          element.firstChild.nodeValue = language === 'en' ? `\n            ${item.en}\n            ` : originalLabels.get(item.selector);
+        }
+      });
+
+      if (language === 'en') {
+        document.title = 'Iris Dubs | Writer & Screenwriter';
+        document.querySelector('meta[name="description"]')?.setAttribute('content', 'Landing page for Iris Dubs, writer and screenwriter of dramatic fiction for television, streaming, and theater.');
+      } else {
+        document.title = originalTitle;
+        document.querySelector('meta[name="description"]')?.setAttribute('content', originalDescription);
+      }
+    }
+
+    document.querySelectorAll('[data-lang-switch]').forEach((button) => {
+      button.addEventListener('click', () => setLanguage(button.dataset.langSwitch));
+    });
+  </script>
 </body>
 </html>
