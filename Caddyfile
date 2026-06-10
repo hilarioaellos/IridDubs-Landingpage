@@ -1,4 +1,4 @@
-http://0.0.0.0:{$PORT} {
+http://0.0.0.0:3000 {
 	# Serve static files from the repo root
 	root * .
 	file_server
