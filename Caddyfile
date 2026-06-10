@@ -1,0 +1,27 @@
+:{$PORT} {
+	# Serve static files from the repo root
+	root * .
+	file_server
+
+	# Gzip compression
+	encode gzip
+
+	# Security headers
+	header {
+		X-XSS-Protection "1; mode=block"
+		X-Content-Type-Options "nosniff"
+		X-Frame-Options "DENY"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		Permissions-Policy "geolocation=(), microphone=(), camera=()"
+		-Server
+	}
+
+	# Health check endpoint
+	respond /health 200
+
+	# Handle 404 errors gracefully
+	handle_errors {
+		rewrite * /{err.status_code}.html
+		file_server
+	}
+}
