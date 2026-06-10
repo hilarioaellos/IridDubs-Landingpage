@@ -15,13 +15,4 @@
 		Permissions-Policy "geolocation=(), microphone=(), camera=()"
 		-Server
 	}
-
-	# Health check endpoint
-	respond /health 200
-
-	# Handle 404 errors gracefully
-	handle_errors {
-		rewrite * /{err.status_code}.html
-		file_server
-	}
 }
