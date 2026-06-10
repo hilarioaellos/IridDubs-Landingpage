@@ -1,3 +1,5 @@
-FROM nginx:alpine
-COPY . /usr/share/nginx/html
-EXPOSE 80
+FROM caddy:alpine
+WORKDIR /srv
+COPY . .
+EXPOSE 3000
+CMD ["caddy", "run", "--config", "/srv/Caddyfile", "--adapter", "caddyfile"]
