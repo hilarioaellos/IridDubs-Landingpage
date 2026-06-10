@@ -612,6 +612,11 @@
       transition: transform 320ms ease, filter 320ms ease;
     }
 
+    .film-frame img.is-contained {
+      object-fit: contain;
+      background: #050505;
+    }
+
     .film-frame:hover img {
       transform: scale(1.06);
       filter: brightness(1) saturate(1.05);
@@ -717,26 +722,62 @@
 
     .contact-layout {
       display: grid;
-      grid-template-columns: minmax(0, 0.88fr) minmax(320px, 1.12fr);
+      grid-template-columns: minmax(0, 1.04fr) minmax(320px, 0.96fr);
       gap: 42px;
       align-items: start;
     }
 
     .contact-list {
-      display: grid;
-      gap: 12px;
-      margin-top: 30px;
+      width: min(100% - 32px, var(--max));
+      margin: 34px auto 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px 18px;
+      border-top: 1px solid rgba(214, 173, 85, 0.28);
+      border-bottom: 1px solid rgba(214, 173, 85, 0.28);
+      padding: 16px 0;
       color: var(--muted);
-      font-size: 0.96rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .contact-list a,
+    .contact-list span {
+      white-space: nowrap;
     }
 
     .contact-list a:hover {
       color: var(--gold);
     }
 
+    .contact-visual {
+      width: 100%;
+      max-width: 420px;
+      margin: 150px 0 0 auto;
+      overflow: hidden;
+      border: 1px solid rgba(214, 173, 85, 0.26);
+      border-radius: var(--radius);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.01)),
+        #090909;
+      box-shadow: 0 18px 52px rgba(0, 0, 0, 0.32);
+    }
+
+    .contact-visual img {
+      width: 100%;
+      height: clamp(360px, 38vw, 500px);
+      object-fit: contain;
+      object-position: center;
+      filter: saturate(0.94) contrast(1.06);
+      padding: 18px;
+    }
+
     .contact-form {
       display: grid;
       gap: 14px;
+      margin-top: 30px;
       border: 1px solid rgba(214, 173, 85, 0.22);
       border-radius: var(--radius);
       padding: clamp(20px, 4vw, 34px);
@@ -829,6 +870,16 @@
       .video-grid,
       .contact-layout {
         grid-template-columns: 1fr;
+      }
+
+      .contact-visual {
+        order: 2;
+        max-width: 100%;
+        margin: 0;
+      }
+
+      .contact-visual img {
+        height: 320px;
       }
 
       .portfolio-grid {
@@ -1033,13 +1084,13 @@
             <article class="architecture-card">
               <h3>La Escuela del Escenario</h3>
               <p>El entendimiento del diálogo orgánico, el ritmo, el espacio dramático y las exigencias reales de producción proviene de sus raíces teatrales. Formada en el Taller Nacional de Teatro de Rajatabla, bajo la dirección de Carlos Giménez, Dubs desarrolló una visión integral de la puesta en escena como actriz, directora, productora y docente.</p>
-              <p>Su experiencia con agrupaciones como Grupo Theja, Arte Atid, Grupo Actoral 80 y Skena, junto a más de 30 montajes teatrales, le permite concebir historias desde la acción viva: personajes que hablan, se contradicen, ocupan el espacio y sostienen la atención de una audiencia.</p>
+              <p>Su experiencia con agrupaciones como Grupo Theja, Arte Atid, Grupo Actoral 80 y Skena, junto a más de 30 montajes teatrales, como productora, le permite concebir historias desde la acción viva: personajes que hablan, se contradicen, ocupan el espacio y sostienen la atención de una audiencia.</p>
             </article>
 
             <article class="architecture-card">
-              <h3>El Método detrás de la Historia</h3>
-              <p>Su formación en Comunicación Social, dramaturgia, narrativa literaria, psicología positiva e inteligencia espiritual sostiene una escritura atenta a la investigación, la información sensible y el impacto social de dramatizar crimen, violencia y poder.</p>
-              <p>Como autora y formadora de guionistas, ha trabajado la emoción humana dentro de las demandas del mercado audiovisual: deadlines, cambios de producción, continuidad narrativa y decisiones dramáticas clave en entornos de alta exigencia.</p>
+              <h3>El Método</h3>
+              <p>Su formación en Comunicación Social, dramaturgia, narrativa literaria, psicología positiva e inteligencia espiritual sostiene una escritura atenta a la investigación periodística, la información sensible y el impacto social de dramatizar crimen, violencia y poder.</p>
+              <p>Como autora y formadora de guionistas, ha trabajado la emoción humana dentro de las demandas del mercado audiovisual: deadlines, cambios de producción, continuidad narrativa y decisiones dramáticas clave en entornos de alta presión y exigencia.</p>
             </article>
           </div>
         </div>
@@ -1059,7 +1110,7 @@
             <div>
               <ul class="credential-list">
                 <li><strong>Jurado de la Industria de la Televisión:</strong> Invitada recurrente como jurado internacional en los <strong>Premios PRODU</strong> (ediciones 2022-2026) y en el Concurso de Guiones de Cortometrajes impulsado por <strong>CinemaVenezuela</strong> (2023-2026).</li>
-                <li><strong>Voz de Autoridad en Plataformas y Streaming:</strong> Conductora y especialista invitada semanal en el programa <em>Al Final del Día</em> (Actualidad Radio, Miami), dedicada al análisis crítico y tendencias de las producciones más importantes de la industria.</li>
+                <li><strong>Voz de Autoridad en Plataformas y Streaming (2025):</strong> Conductora y especialista invitada semanal en el programa <em>Al Final del Día</em> (Actualidad Radio, Miami), dedicada al análisis crítico y tendencias de las producciones más importantes de la industria.</li>
               </ul>
 
               <div class="award-block" style="margin-top: 20px;">
@@ -1073,7 +1124,7 @@
                 <p><strong>Reconocimientos y Formación Teatral:</strong></p>
                 <p><strong>Premio de Teatro Infantil Nacional (2005):</strong> Ganadora de la XIII Edición como productora teatral.</p>
                 <p><strong>Premio Municipal de Teatro (1996):</strong> Reconocimiento como actriz de reparto por <em>El Matrimonio de Bette y Boo</em>.</p>
-                <p><strong>Orden Mérito al Trabajo (Categoría Plata):</strong> Otorgada por su contribución al desarrollo cultural y docente en las artes escénicas.</p>
+                <p><strong>Orden Mérito al Trabajo (Categoría Plata):</strong> Otorgada por su contribución al desarrollo cultural y docente en las artes escénicas. Caracas-Venezuela.</p>
               </div>
             </div>
 
@@ -1085,13 +1136,16 @@
                 <img src="Material_Clasificado/Premios/premio-produ-2025.jpg?v=20260609-3" alt="Premio PRODU 2025" />
               </figure>
               <figure class="award-photo">
-                <img src="Material_Clasificado/Premios/jose-ignacio-cabrujas-premio.jpg?v=20260609-3" alt="Premio José Ignacio Cabrujas" />
-              </figure>
-              <figure class="award-photo">
                 <img src="Material_Clasificado/Premios/nominacion-emmy-malverde.jpeg?v=20260609-3" alt="Nominación Emmy por Malverde" />
               </figure>
               <figure class="award-photo">
                 <img src="Material_Clasificado/Premios/premios-produ-jurado.jpeg?v=20260609-3" alt="Jurado Premios PRODU" />
+              </figure>
+              <figure class="award-photo">
+                <img src="Material_Clasificado/Premios/Permio Inter.jpeg?v=20260610-1" alt="Premio Inter" />
+              </figure>
+              <figure class="award-photo">
+                <img src="Material_Clasificado/Premios/Premio Marco Antonio.jpeg?v=20260610-1" alt="Premio Marco Antonio" />
               </figure>
             </div>
           </div>
@@ -1109,35 +1163,35 @@
           </div>
 
           <div class="film-strip" aria-label="Archivo visual en formato film strip">
+            <a class="film-frame" href="Material_Clasificado/Narcoseries/Temporada X.png?v=20260610-1">
+              <img class="is-contained" src="Material_Clasificado/Narcoseries/Temporada X.png?v=20260610-1" alt="Temporada X" />
+            </a>
             <a class="film-frame" href="Material_Clasificado/Prensa_Media/FullSizeRender-1_edited.jpg">
               <img src="Material_Clasificado/Prensa_Media/FullSizeRender-1_edited.jpg" alt="Iris Dubs en prensa y medios" />
-            </a>
-            <a class="film-frame" href="Material_Clasificado/Prensa_Media/images.jpg">
-              <img src="Material_Clasificado/Prensa_Media/images.jpg" alt="Imagen de prensa de Iris Dubs" />
-            </a>
-            <a class="film-frame" href="Material_Clasificado/Prensa_Media/Monologando.jpg">
-              <img src="Material_Clasificado/Prensa_Media/Monologando.jpg" alt="Monologando" />
-            </a>
-            <a class="film-frame" href="Material_Clasificado/Prensa_Media/SABRINA_SEARA_senor_de_los_C.jpg">
-              <img src="Material_Clasificado/Prensa_Media/SABRINA_SEARA_senor_de_los_C.jpg" alt="Señor de los Cielos media" />
             </a>
             <a class="film-frame" href="Material_Clasificado/Prensa_Media/Telemundo-Edge-scaled.jpg">
               <img src="Material_Clasificado/Prensa_Media/Telemundo-Edge-scaled.jpg" alt="Telemundo Edge" />
             </a>
-            <a class="film-frame" href="Material_Clasificado/Prensa_Media/Voz-500x500.jpg">
-              <img src="Material_Clasificado/Prensa_Media/Voz-500x500.jpg" alt="Voz y medios" />
+            <a class="film-frame" href="Material_Clasificado/Prensa_Media/Monologando.jpg">
+              <img class="is-contained" src="Material_Clasificado/Prensa_Media/Monologando.jpg" alt="Monologando" />
             </a>
-            <a class="film-frame" href="Material_Clasificado/Prensa_Media/El senor avioneta.jpeg?v=20260609-2">
-              <img src="Material_Clasificado/Prensa_Media/El senor avioneta.jpeg?v=20260609-2" alt="El Señor de los Cielos avioneta" />
+            <a class="film-frame" href="Material_Clasificado/Prensa_Media/El Sr 2016.jpeg?v=20260610-1">
+              <img src="Material_Clasificado/Prensa_Media/El Sr 2016.jpeg?v=20260610-1" alt="El Señor de los Cielos 2016" />
             </a>
             <a class="film-frame" href="Material_Clasificado/Prensa_Media/El senor nro 1.jpeg?v=20260609-2">
               <img src="Material_Clasificado/Prensa_Media/El senor nro 1.jpeg?v=20260609-2" alt="El Señor de los Cielos" />
             </a>
-            <a class="film-frame" href="Material_Clasificado/Prensa_Media/Malverde 9na.jpeg?v=20260609-2">
-              <img src="Material_Clasificado/Prensa_Media/Malverde 9na.jpeg?v=20260609-2" alt="Malverde novena entrega" />
+            <a class="film-frame" href="Material_Clasificado/Prensa_Media/Voz-500x500.jpg">
+              <img src="Material_Clasificado/Prensa_Media/Voz-500x500.jpg" alt="Voz y medios" />
             </a>
-            <a class="film-frame" href="Material_Clasificado/Prensa_Media/Produ-Jurado.jpeg?v=20260609-2">
-              <img src="Material_Clasificado/Prensa_Media/Produ-Jurado.jpeg?v=20260609-2" alt="Iris Dubs como jurado PRODU" />
+            <a class="film-frame" href="Material_Clasificado/Prensa_Media/Cintillo-dulce-amargo-scaled.jpg?v=20260610-1">
+              <img class="is-contained" src="Material_Clasificado/Prensa_Media/Cintillo-dulce-amargo-scaled.jpg?v=20260610-1" alt="Cintillo Dulce Amargo" />
+            </a>
+            <a class="film-frame" href="Material_Clasificado/Prensa_Media/Malverde 9na.jpeg?v=20260609-2">
+              <img class="is-contained" src="Material_Clasificado/Prensa_Media/Malverde 9na.jpeg?v=20260609-2" alt="Malverde novena entrega" />
+            </a>
+            <a class="film-frame" href="Material_Clasificado/Prensa_Media/PDF-la-invasora-2003.1.jpg?v=20260610-1">
+              <img class="is-contained" src="Material_Clasificado/Prensa_Media/PDF-la-invasora-2003.1.jpg?v=20260610-1" alt="La Invasora 2003" />
             </a>
           </div>
         </div>
@@ -1170,8 +1224,8 @@
             </article>
 
             <article class="video-card">
-              <div class="video-placeholder">Video por seleccionar</div>
-              <div class="video-caption">Espacio reservado</div>
+              <iframe src="https://www.instagram.com/reel/DYfBnQstBLe/embed" title="Reel de Instagram Iris Dubs" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen></iframe>
+              <div class="video-caption">Reel de Instagram</div>
             </article>
           </div>
         </div>
@@ -1182,32 +1236,39 @@
       <div class="section-inner contact-layout">
         <div>
           <p class="eyebrow">Contacto</p>
-          <h2>Enviar una propuesta</h2>
-          <div class="contact-list">
-            <a href="https://www.irisdubs.com">www.irisdubs.com</a>
-            <span>SGAE #139006</span>
-            <a href="https://linkedin.com/in/iris-dubs">LinkedIn: linkedin.com/in/iris-dubs</a>
-            <a href="https://imdb.com/name/nm1424737">IMDb: imdb.com/name/nm1424737</a>
-            <a href="https://x.com/irisdubs">X: @irisdubs</a>
-            <a href="https://instagram.com/irisdubs">IG: @irisdubs</a>
-          </div>
+          <h2>Escríbeme...</h2>
+
+          <form class="contact-form" action="#" method="post">
+            <label>
+              Nombre
+              <input type="text" name="nombre" autocomplete="name" required />
+            </label>
+            <label>
+              Email
+              <input type="email" name="email" autocomplete="email" required />
+            </label>
+            <label>
+              Mensaje
+              <textarea name="mensaje" required></textarea>
+            </label>
+            <button type="submit">Enviar mensaje</button>
+          </form>
         </div>
 
-        <form class="contact-form" action="#" method="post">
-          <label>
-            Nombre
-            <input type="text" name="nombre" autocomplete="name" required />
-          </label>
-          <label>
-            Email
-            <input type="email" name="email" autocomplete="email" required />
-          </label>
-          <label>
-            Mensaje
-            <textarea name="mensaje" required></textarea>
-          </label>
-          <button type="submit">Enviar Propuesta</button>
-        </form>
+        <div>
+          <figure class="contact-visual" aria-label="Imagen de contacto Iris Dubs">
+            <img src="Material_Clasificado/Prensa_Media/taza.jpeg?v=20260610-1" alt="Taza de Iris Dubs" />
+          </figure>
+        </div>
+      </div>
+
+      <div class="contact-list" aria-label="Cuentas y enlaces de Iris Dubs">
+        <a href="https://www.irisdubs.com">www.irisdubs.com</a>
+        <span>SGAE #139006</span>
+        <a href="https://linkedin.com/in/iris-dubs">LinkedIn: linkedin.com/in/iris-dubs</a>
+        <a href="https://imdb.com/name/nm1424737">IMDb: imdb.com/name/nm1424737</a>
+        <a href="https://x.com/irisdubs">X: @irisdubs</a>
+        <a href="https://instagram.com/irisdubs">IG: @irisdubs</a>
       </div>
       <p class="footer-note">© 2026 Iris Dubs. Escritura, desarrollo y arquitectura dramática para televisión, streaming y teatro.</p>
     </footer>
@@ -1274,11 +1335,10 @@
       { selector: '.video-card:nth-child(1) .video-caption', en: 'Featured audiovisual archive' },
       { selector: '.video-card:nth-child(2) .video-caption', en: 'Interview and media presence' },
       { selector: '.video-card:nth-child(3) .video-caption', en: 'Conversation on industry and narrative' },
-      { selector: '.video-placeholder', en: 'Video to be selected' },
-      { selector: '.video-card:nth-child(4) .video-caption', en: 'Reserved space' },
+      { selector: '.video-card:nth-child(4) .video-caption', en: 'Instagram reel' },
       { selector: '#contacto .eyebrow', en: 'Contact' },
-      { selector: '#contacto h2', en: 'Send a proposal' },
-      { selector: '.contact-form button[type="submit"]', en: 'Send Proposal' },
+      { selector: '#contacto h2', en: 'Write to me...' },
+      { selector: '.contact-form button[type="submit"]', en: 'Send message' },
       { selector: '.footer-note', en: '© 2026 Iris Dubs. Writing, development, and dramatic architecture for television, streaming, and theater.' }
     ];
 
