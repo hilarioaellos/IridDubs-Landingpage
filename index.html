@@ -785,6 +785,22 @@
       box-shadow: var(--shadow);
     }
 
+    .form-status {
+      min-height: 22px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.84rem;
+      font-weight: 600;
+    }
+
+    .form-status.is-success {
+      color: #e9d195;
+    }
+
+    .form-status.is-error {
+      color: #ffb3a7;
+    }
+
     label {
       display: grid;
       gap: 8px;
@@ -1176,7 +1192,7 @@
               <img class="is-contained" src="Material_Clasificado/Prensa_Media/Monologando.jpg" alt="Monologando" />
             </a>
             <a class="film-frame" href="Material_Clasificado/Prensa_Media/El Sr 2016.jpeg?v=20260610-1">
-              <img src="Material_Clasificado/Prensa_Media/El Sr 2016.jpeg?v=20260610-1" alt="El Señor de los Cielos 2016" />
+              <img class="is-contained" src="Material_Clasificado/Prensa_Media/El Sr 2016.jpeg?v=20260610-1" alt="El Señor de los Cielos 2016" />
             </a>
             <a class="film-frame" href="Material_Clasificado/Prensa_Media/El senor nro 1.jpeg?v=20260609-2">
               <img src="Material_Clasificado/Prensa_Media/El senor nro 1.jpeg?v=20260609-2" alt="El Señor de los Cielos" />
@@ -1238,7 +1254,7 @@
           <p class="eyebrow">Contacto</p>
           <h2>Escríbeme...</h2>
 
-          <form class="contact-form" action="#" method="post">
+          <form class="contact-form" action="/api/contact" method="post">
             <label>
               Nombre
               <input type="text" name="nombre" autocomplete="name" required />
@@ -1252,6 +1268,7 @@
               <textarea name="mensaje" required></textarea>
             </label>
             <button type="submit">Enviar mensaje</button>
+            <p class="form-status" role="status" aria-live="polite"></p>
           </form>
         </div>
 
@@ -1274,6 +1291,41 @@
     </footer>
   </div>
   <script>
+    const contactForm = document.querySelector('.contact-form');
+    const formStatus = document.querySelector('.form-status');
+
+    if (contactForm && formStatus) {
+      contactForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const submitButton = contactForm.querySelector('button[type="submit"]');
+        const formData = new FormData(contactForm);
+
+        formStatus.className = 'form-status';
+        formStatus.textContent = 'Enviando mensaje...';
+        submitButton.disabled = true;
+
+        try {
+          const response = await fetch(contactForm.action, {
+            method: 'POST',
+            body: new URLSearchParams(formData)
+          });
+          const result = await response.json();
+
+          formStatus.textContent = result.message || 'Mensaje enviado.';
+          formStatus.classList.add(result.ok ? 'is-success' : 'is-error');
+
+          if (result.ok) {
+            contactForm.reset();
+          }
+        } catch (error) {
+          formStatus.textContent = 'No se pudo enviar el mensaje. Intenta nuevamente.';
+          formStatus.classList.add('is-error');
+        } finally {
+          submitButton.disabled = false;
+        }
+      });
+    }
+
     const translations = [
       { selector: 'a[href="#portafolio"]', en: 'Portfolio' },
       { selector: 'a[href="#biografia"]', en: 'Biography' },

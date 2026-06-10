@@ -1,0 +1,12 @@
+{
+  "name": "iris-dubs-landingpage",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Landing page de Iris Dubs con formulario de contacto via Resend.",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
