@@ -916,13 +916,26 @@
         min-height: 88vh;
         padding: 112px 0 48px;
         background:
-          linear-gradient(90deg, rgba(7, 7, 8, 0.92) 0%, rgba(7, 7, 8, 0.72) 55%, rgba(7, 7, 8, 0.42) 100%),
-          linear-gradient(0deg, rgba(7, 7, 8, 1) 0%, rgba(7, 7, 8, 0.2) 55%),
+          linear-gradient(90deg, rgba(7, 7, 8, 0.96) 0%, rgba(7, 7, 8, 0.88) 55%, rgba(7, 7, 8, 0.82) 100%),
+          linear-gradient(0deg, rgba(7, 7, 8, 1) 0%, rgba(7, 7, 8, 0.55) 55%),
           url("Material_Clasificado/Biografia/Hero Photo Iris Dubs.png") right 34% top 18% / cover no-repeat;
       }
 
       h1 {
         font-size: clamp(3rem, 16vw, 4.9rem);
+        text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7);
+      }
+
+      .hero-copy {
+        text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
+      }
+
+      .nav-links {
+        color: #d4c9bc;
+      }
+
+      .muted, .eyebrow ~ p, .bio-text, .stat-label, .credential-desc {
+        color: #cfc4b8;
       }
 
       .hero-copy {
@@ -949,6 +962,10 @@
     }
 
     @media (max-width: 420px) {
+      :root {
+        --muted: #cfc4b8;
+      }
+
       .project-content {
         padding: 20px;
       }
