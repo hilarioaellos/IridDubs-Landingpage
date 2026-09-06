@@ -1414,7 +1414,7 @@
           <p class="eyebrow">Contacto</p>
           <h2>Escríbeme...</h2>
 
-          <form class="contact-form" action="/api/contact" method="post">
+          <form class="contact-form" action="https://formsubmit.co/ajax/ladubs@gmail.com" method="post">
             <label>
               Nombre
               <input type="text" name="nombre" autocomplete="name" required />
@@ -1427,6 +1427,8 @@
               Mensaje
               <textarea name="mensaje" required></textarea>
             </label>
+            <input type="hidden" name="_subject" value="Nuevo mensaje de contacto - irisdubs.com" />
+            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
             <button type="submit">Enviar mensaje</button>
             <p class="form-status" role="status" aria-live="polite"></p>
           </form>
@@ -1467,14 +1469,16 @@
         try {
           const response = await fetch(contactForm.action, {
             method: 'POST',
-            body: new URLSearchParams(formData)
+            headers: { Accept: 'application/json' },
+            body: formData
           });
           const result = await response.json();
+          const ok = response.ok && (result.success === 'true' || result.success === true);
 
-          formStatus.textContent = result.message || 'Mensaje enviado.';
-          formStatus.classList.add(result.ok ? 'is-success' : 'is-error');
+          formStatus.textContent = ok ? 'Mensaje enviado. ¡Gracias!' : 'No se pudo enviar el mensaje. Intenta nuevamente.';
+          formStatus.classList.add(ok ? 'is-success' : 'is-error');
 
-          if (result.ok) {
+          if (ok) {
             contactForm.reset();
           }
         } catch (error) {
